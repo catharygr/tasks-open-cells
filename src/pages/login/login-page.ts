@@ -32,7 +32,7 @@ export class LoginPage extends LitElement {
       <h1>Login Page</h1>
       <div class="form-container">
         <form>
-          <md-outlined-text-field supporting-text="*requerid" type="text"  label="Username"     requerid minLength="3" ></md-outlined-text-field>
+          <md-outlined-text-field supporting-text="*requerid" type="text"  label="Username"     required minLength="3" ></md-outlined-text-field>
            <md-outlined-text-field supporting-text="*requerid" type="text" iconTrailing="visibility" label="Password"  minLength="8" required>
             <md-icon slot="trailing-icon">visibility</md-icon>
           </md-outlined-text-field>

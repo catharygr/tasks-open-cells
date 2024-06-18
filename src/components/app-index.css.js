@@ -22,7 +22,7 @@ export const styles = css`
     flex-direction: column;
     height: 100%;
     box-sizing: border-box;
-    background-color: pink;
+    background-color: rgb(235, 235, 235);
   }
   main {
     flex: 1;
