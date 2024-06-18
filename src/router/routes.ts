@@ -10,11 +10,13 @@ export const routes: RouteDefinition[] = [
     },
   },
   {
-    path: '/second',
-    name: 'second',
-    component: 'second-page',
+    path: '/login',
+    name: 'login',
+    component: 'login-page',
     action: async () => {
-      await import('../pages/second/second-page.js');
+      await import('../pages/login/login-page.js');
     },
-  }
+  },
+
+ 
 ];

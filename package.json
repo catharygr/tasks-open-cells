@@ -11,6 +11,7 @@
     "preview": "npm run build && vite preview"
   },
   "dependencies": {
+    "@material/web": "^1.5.0",
     "@open-cells/core": "^1.0.1",
     "@open-cells/element-controller": "^1.0.1",
     "@open-cells/page-controller": "^1.0.1",
