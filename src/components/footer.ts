@@ -6,8 +6,10 @@ export class FooterComponent extends LitElement {
   static styles = css`
     footer {
       text-align: center;
+      padding: 0.6rem;
         & p {
         margin: 0;
+        font-weight: bold;
      }
 }
   `
