@@ -17,6 +17,31 @@ export const routes: RouteDefinition[] = [
       await import('../pages/login/login-page.js');
     },
   },
+  {
+    path: '/tasks/add',
+    name: 'add-task',
+    component: 'add-tasks-page',
+    action: async () => {
+      await import('../pages/add-task/add-task-page.js');
+    },
+  },
+  {
+    path: '/tasks/edit/:taskId',
+    name: 'edit-tasks',
+    component: 'edit-tasks-page',
+    action: async () => {
+      await import('../pages/edit-task/edit-task-page.js');
+    },
+  },
+  {
+    path: '/not-found',
+    name: 'not-found',
+    component: 'not-found-page',
+    notFound: true,
+    action: async () => {
+      await import('../pages/not-found/not-found-page.js');
+    },
+  },
 
  
 ];

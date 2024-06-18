@@ -14,7 +14,7 @@ export class HomePage extends LitElement {
 
   render() {
     return html`
-      <button @click="${() => this.pageController.navigate('login')}">Go to login page</button>
+      <button @click="${() => this.pageController.navigate('add-task')}">Go to notFound page</button>
     `;
   }
 }
