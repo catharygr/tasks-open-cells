@@ -14,6 +14,7 @@
     "@open-cells/core": "^1.0.1",
     "@open-cells/element-controller": "^1.0.1",
     "@open-cells/page-controller": "^1.0.1",
+    "json-server": "^0.17.4",
     "lit": "^3.0.0"
   },
   "devDependencies": {
