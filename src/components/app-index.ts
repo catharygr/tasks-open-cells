@@ -4,6 +4,8 @@ import { customElement } from 'lit/decorators.js';
 import { ElementController } from '@open-cells/element-controller';
 import { routes } from '../router/routes.js';
 import { styles } from './app-index.css.js';
+import "./header.ts"
+import "./footer.ts"
 
 startApp({
   routes,
@@ -35,9 +37,12 @@ export class AppIndex extends LitElement {
 
   render() {
     return html`
+      <header-component></header-component>
       <main role="main" tabindex="-1">
         <slot></slot>
       </main>
+      <footer-component></footer-component>
+
     `;
   }
 }
