@@ -8,15 +8,24 @@ export class LoginPage extends LitElement {
 
   static styles = css`
     :host {
-      border: 10px solid #888;
+
+    
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
     }
   `;
   render () {
     return html`
       <h1>Login Page</h1>
-     <md-outlined-text-field label="username" required ></md-outlined-text-field>
-      <md-outlined-text-field label="password" required></md-outlined-text-field>
-      <md-filled-button>Login</md-filled-button>
+      <form>
+        <md-outlined-text-field label="username" required ></md-outlined-text-field>
+         <md-outlined-text-field label="password" required></md-outlined-text-field>
+         <md-filled-button>Login</md-filled-button>
+      </form>
 
     `;
   }
