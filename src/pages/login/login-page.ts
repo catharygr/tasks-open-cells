@@ -4,10 +4,17 @@ import { PageController } from "@open-cells/page-controller";
 import '@material/web/textfield/outlined-text-field';
 import '@material/web/button/filled-button.js';
 import '@material/web/icon/icon.js';
+import {t, updateWhenLocaleResourcesChange} from '@open-cells/localize';
+
 
 @customElement("login-page")
 export class LoginPage extends LitElement {
   controller = new PageController(this);
+  constructor() {
+    super();
+    // @ts-ignore
+    updateWhenLocaleResourcesChange(this);
+  }
 
   @query('#pass-field')
   private  passField!: HTMLInputElement;
@@ -51,14 +58,14 @@ export class LoginPage extends LitElement {
   }
   render () {
     return html`
-      <h1>Login Page</h1>
+      <h1>${t("login-title")}</h1>
       <div class="form-container">
         <form @submit=${this.loginUser}>
-          <md-outlined-text-field supporting-text="*requerid" type="text" required minLength="3" label="Username"></md-outlined-text-field>
-           <md-outlined-text-field id="pass-field" supporting-text="*requerid" type="password" iconTrailing="visibility" label="Password"  minLength="8" required>
+          <md-outlined-text-field  type="text" required minLength="3" label=${t("login-username")}></md-outlined-text-field>
+           <md-outlined-text-field id="pass-field"  type="password" iconTrailing="visibility" label=${t("login-password")}  minLength="8" required>
             <md-icon @click=${this.showPassword} class="show-pass" slot="trailing-icon">visibility</md-icon>
           </md-outlined-text-field>
-           <md-filled-button type="submit">Login</md-filled-button>
+           <md-filled-button type="submit">${t("login-btn")}</md-filled-button>
         </form>
       </div>
 

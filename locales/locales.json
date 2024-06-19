@@ -1,0 +1,20 @@
+{
+  "en": {
+    "app-title": "Tasker App",
+    "login-title": "Login Page",
+    "login-username": "Username",
+    "login-password": "Password",
+    "login-btn": "Login"
+
+  },
+  "es": {
+    "app-title": "Tarea App",
+    "login-title": "Iniciar sesión",
+    "login-username": "Nombre",
+    "login-password": "Contraseña",
+    "login-btn": "Loguear"
+
+
+   
+  }
+}
