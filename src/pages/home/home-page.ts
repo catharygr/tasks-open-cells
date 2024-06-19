@@ -35,7 +35,7 @@ export class HomePage extends LitElement {
     return html`
     <p>${this.errTask ? this.errTask : ""}</p>
     ${this.allTaks?.map((task: any) => html`<task-card .task=${task}>}</task-card>`)}
-      <button @click="${() => this.pageController.navigate('login')}">Go to login page</button>
+      <button @click="${() => this.pageController.navigate('not-found')}">Go to not page</button>
     `;
   }
 }
