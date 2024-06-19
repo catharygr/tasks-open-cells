@@ -6,7 +6,8 @@
     "login-password": "Password",
     "login-btn": "Login",
     "footer-by": "by",
-    "not-title": "We're sorry, we couldn't find that page. You can go back to the home page:"
+    "not-title": "We're sorry, we couldn't find that page. You can go back to the home page:",
+    "not-description": "These aren't the droids you're looking for. Move along."
 
   },
   "es": {
@@ -16,7 +17,8 @@
     "login-password": "Contraseña",
     "login-btn": "Loguear",
     "footer-by": "Hecho por",
-    "not-title": "Lo sentimos, no hemos encontrado esa página, puedes volver a home: "
+    "not-title": "Lo sentimos, no hemos encontrado esa página, puedes volver a home:",
+    "not-description": "Estos no son los droides que estás buscando. Sigue adelante."
     
   }
 }

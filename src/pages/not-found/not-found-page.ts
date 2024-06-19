@@ -1,5 +1,5 @@
 import { LitElement,html,css } from "lit";
-import { customElement, state } from "lit/decorators.js";
+import { customElement } from "lit/decorators.js";
 import '@material/web/button/filled-button.js';
 import {t, updateWhenLocaleResourcesChange} from '@open-cells/localize';
 
@@ -12,9 +12,7 @@ export class NotFound extends LitElement {
     updateWhenLocaleResourcesChange(this);
   }
 
-  @state()
-  private _lenguage = 'es';
-  private _alt = 'en';
+  
 
 
   static styles = css `
@@ -33,23 +31,25 @@ export class NotFound extends LitElement {
         img {
             width: 100%;
             max-width: 500px;
-            margin-top: 2rem;
+            margin-top: 1rem;
           }
+            .not-description  {
+              font-size: 2rem;
+              font-weight: 900;
+              }
   `;
-  
-
-
   render () {
-    const imageName = this._lenguage === 'es' ? 'not-found-es.png' : 'not-found-en.png';
-    const altName = this._alt === 'es' ? 'Imágenes de droides' : 'Images of droids';
     return html`
     <div class="container-no-found">
       <h2>${t('not-title')}</h2>
       <md-filled-button class="btn-not-found" @click=${() => window.location.href = '/'}>HOME</md-filled-button>
-      <img src="/images/${imageName}" alt=${altName}/>
+      <p class="not-description">${t('not-description')}</p>
+      <img src="/images/not-found.jpeg" alt="Imagen de error"/>
     </div>
     `;
   }
 }
 
 
+// Estos no son los droides que estás buscando.
+// We're sorry, we couldn't find that page. You can go back to the home page:
