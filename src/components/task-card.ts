@@ -1,5 +1,7 @@
 import { LitElement,html,css } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import '@material/web/icon/icon.js';
+
 
 @customElement("task-card")
 export class TaskCard extends LitElement {
@@ -17,8 +19,19 @@ export class TaskCard extends LitElement {
   render () {
     return html`
       <div class="task-card">
-        <h2>Task Card</h2>
-        <p>This is a task card</p>
+        <h2>${this.task.title}</h2>
+        <p>${this.task.description}</p>
+        <div>
+          <div>
+            ${this.task.tags.map((tag: any) => html`<span>${tag}</span>`)}
+          </div>
+          <div>
+            <button @click=${() => this.dispatchEvent(new CustomEvent('edit-task', { detail: this.task }))}>Edit</button>
+            <button @click=${() => this.dispatchEvent(new CustomEvent('delete-task', { detail: this.task }))}>Delete</button>
+
+          </div>
+
+        </div>
       </div>
     `;
   }
