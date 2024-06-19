@@ -5,7 +5,8 @@
     "login-username": "Username",
     "login-password": "Password",
     "login-btn": "Login",
-    "footer-by": "by"
+    "footer-by": "by",
+    "not-title": "We're sorry, we couldn't find that page. You can go back to the home page:"
 
   },
   "es": {
@@ -14,9 +15,8 @@
     "login-username": "Nombre",
     "login-password": "Contraseña",
     "login-btn": "Loguear",
-    "footer-by": "Hecho por"
-
-
-   
+    "footer-by": "Hecho por",
+    "not-title": "Lo sentimos, no hemos encontrado esa página, puedes volver a la home: "
+    
   }
 }
