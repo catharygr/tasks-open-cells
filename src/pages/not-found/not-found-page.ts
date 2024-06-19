@@ -1,5 +1,5 @@
 import { LitElement,html,css } from "lit";
-import { customElement, property, state } from "lit/decorators.js";
+import { customElement, state } from "lit/decorators.js";
 import '@material/web/button/filled-button.js';
 import {t, updateWhenLocaleResourcesChange} from '@open-cells/localize';
 
@@ -12,14 +12,9 @@ export class NotFound extends LitElement {
     updateWhenLocaleResourcesChange(this);
   }
 
-  @property({type: String}) public language = 'en';
-
   @state()
-  private _imageName = 'not-found-en.png';
-  private _alt = 'Images of droids';
-  private _cacheBuster = Date.now();
-
-
+  private _lenguage = 'es';
+  private _alt = 'en';
 
 
   static styles = css `
@@ -41,27 +36,17 @@ export class NotFound extends LitElement {
             margin-top: 2rem;
           }
   `;
-
-  updated(changedProperties: Map<string, unknown>) {
-    if (changedProperties.has('language')) {
-      this._imageName = this.language === 'es' ? 'not-found-es.png' : 'not-found-en.png';
-      this._alt = this.language === 'es' ? 'Imágenes de droides' : 'Images of droids';
-      this._cacheBuster = Date.now();
-    }
-  }
-
-  setLanguage(newLanguage: string) {
-    this.language = newLanguage;
-    this.requestUpdate();
-  }
+  
 
 
-  render() {
+  render () {
+    const imageName = this._lenguage === 'es' ? 'not-found-es.png' : 'not-found-en.png';
+    const altName = this._alt === 'es' ? 'Imágenes de droides' : 'Images of droids';
     return html`
     <div class="container-no-found">
       <h2>${t('not-title')}</h2>
       <md-filled-button class="btn-not-found" @click=${() => window.location.href = '/'}>HOME</md-filled-button>
-      <img src="/images/${this._imageName}?${this._cacheBuster}" alt=${this._alt}/>
+      <img src="/images/${imageName}" alt=${altName}/>
     </div>
     `;
   }
