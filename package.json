@@ -14,6 +14,7 @@
     "@material/web": "^1.5.0",
     "@open-cells/core": "^1.0.1",
     "@open-cells/element-controller": "^1.0.1",
+    "@open-cells/localize": "^1.1.1",
     "@open-cells/page-controller": "^1.0.1",
     "json-server": "^0.17.4",
     "lit": "^3.0.0"

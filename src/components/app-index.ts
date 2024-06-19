@@ -11,22 +11,22 @@ startApp({
   routes,
   mainNode: 'app-content',
   // @ts-ignore
-  // interceptor: function(navigation, ctx) {
-  //   let intercept = false
-  //   let redirect;
+  interceptor: function(navigation, ctx) {
+    let intercept = false
+    let redirect;
 
-  //   if(
-  //     !sessionStorage.getItem("userToken") && 
-  //     navigation.to?.page !== 'login'
-  //   ) {
-  //     intercept = true; 
-  //     redirect = {page: 'login', params: {}}
-  //   }
-  //   if(sessionStorage.getItem("userToken") && navigation.to?.page === 'login') {
-  //     intercept = true; 
-  //   }
-  //   return {intercept, redirect};
-  // }
+    if(
+      !sessionStorage.getItem("userToken") && 
+      navigation.to?.page !== 'login'
+    ) {
+      intercept = true; 
+      redirect = {page: 'login', params: {}}
+    }
+    if(sessionStorage.getItem("userToken") && navigation.to?.page === 'login') {
+      intercept = true; 
+    }
+    return {intercept, redirect};
+  }
 });
 
 
