@@ -43,8 +43,10 @@ export class NotFound extends LitElement {
     <div class="container-no-found">
       <h2>${t('not-title')}</h2>
       <md-filled-button class="btn-not-found" @click=${() => window.location.href = '/'}>HOME</md-filled-button>
-      <p class="not-description">${t('not-description')}</p>
-      <img src="/images/not-found.jpeg" alt="Imagen de error"/>
+      <div class="all-together">
+        <p class="not-description">${t('not-description')}</p>
+        <img src="/images/not-found.jpeg" alt="Imagen de error"/>
+      </div>
     </div>
     `;
   }
