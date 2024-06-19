@@ -4,7 +4,8 @@
     "login-title": "Login Page",
     "login-username": "Username",
     "login-password": "Password",
-    "login-btn": "Login"
+    "login-btn": "Login",
+    "footer-by": "by"
 
   },
   "es": {
@@ -12,7 +13,8 @@
     "login-title": "Iniciar sesión",
     "login-username": "Nombre",
     "login-password": "Contraseña",
-    "login-btn": "Loguear"
+    "login-btn": "Loguear",
+    "footer-by": "Hecho por"
 
 
    
