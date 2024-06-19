@@ -10,6 +10,7 @@ import "./footer.ts"
 startApp({
   routes,
   mainNode: 'app-content',
+  persistentPages: ['home'], 
   // @ts-ignore
   interceptor: function(navigation, ctx) {
     let intercept = false

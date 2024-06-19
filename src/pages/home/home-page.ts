@@ -1,19 +1,39 @@
 import { html, LitElement } from 'lit';
 import { PageController } from '@open-cells/page-controller';
-import { customElement } from 'lit/decorators.js';
+import { customElement, state } from 'lit/decorators.js';
 
-// @ts-ignore
+
 @customElement('home-page')
 export class HomePage extends LitElement {
+  [x: string]: any;
   pageController = new PageController(this);
 
-  protected createRenderRoot(): HTMLElement | DocumentFragment {
-    // @ts-ignore
-    return this;
-  }
+  static inbounds = {
+    allTaks: {channel: 'ch_all_tasks'}
+  };
+
+ static outbounds = {
+  allTaks: {channel: 'ch_all_tasks'}
+ };
+
+ @state()
+ private errTask: String = '';
+
+ onPageEnter() {
+  fetch('http://localhost:3000/tasks')
+  .then(response =>response.json())
+  .then(data => this.allTaks = data)
+  .catch(error => this.errTask = error.message || "Error fetching tasks");
+
+
+
+ }
 
   render() {
+    console.log(this.allTaks)
     return html`
+    <p>${this.errTask ? this.errTask : ""}</p>
+    ${this.allTaks?.map((task: any) => html`<p>${task.title}</p>`)}
       <button @click="${() => this.pageController.navigate('login')}">Go to login page</button>
     `;
   }
