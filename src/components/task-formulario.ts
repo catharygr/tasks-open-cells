@@ -31,8 +31,11 @@ export class TaskFormulario extends LitElement {
     type: '',
   };
 
-  @property({ type: Boolean })
-  private _isEditing = false;
+  @property({ type: HTMLSelectElement })
+  private _taskTypeSelect!: HTMLSelectElement;
+
+  // @property({ type: Boolean })
+  // private _isEditing = false;
 
   @query('#type')
   private _type!: HTMLSelectElement;
@@ -62,19 +65,6 @@ export class TaskFormulario extends LitElement {
       this._task.tags = (e.target as HTMLInputElement).value.split(';');
       this.requestUpdate();
     });
-  }
-
-  onPageEnter() {
-    if (this._isEditing) {
-      this._task = {
-        id: parseFloat(crypto.randomUUID()),
-        title: '',
-        description: '',
-        tags: [],
-        type: '',
-      };
-      this.requestUpdate();
-    }
   }
 
   render() {
@@ -109,7 +99,8 @@ export class TaskFormulario extends LitElement {
     `;
   }
 
-  sendTask() {
+  sendTask(e: Event) {
+    e.preventDefault();
     fetch('http://localhost:3000/tasks', {
       method: 'POST',
       headers: {
@@ -123,5 +114,18 @@ export class TaskFormulario extends LitElement {
       .catch((error) => {
         console.error('Error:', error);
       });
+
+    this._task = {
+      id: 0,
+      title: '',
+      description: '',
+      tags: [],
+      type: '',
+    };
+    this._type.value = '';
+    this._title.value = '';
+    this._description.value = '';
+    this._tags.value = '';
+    this._taskTypeSelect.selectedIndex = -1;
   }
 }
