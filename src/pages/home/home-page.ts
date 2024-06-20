@@ -1,14 +1,33 @@
-import { html, LitElement, PropertyValueMap } from 'lit';
+import { html, LitElement, PropertyValueMap,css } from 'lit';
 import { PageController } from '@open-cells/page-controller';
 import { customElement, state } from 'lit/decorators.js';
 import "../../components/task-card.ts";
 import { Task } from '../../utils/types.js';
+import "@material/web/button/elevated-button.js";
+import "@material/web/icon/icon.js";
 
 
 @customElement('home-page')
 export class HomePage extends LitElement {
   [x: string]: any;
   pageController = new PageController(this);
+
+  static styles = css`
+  :host {
+  position: relative;
+  }
+  .new-task {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1.5rem;
+  background-color: pink;  
+  right: 1rem;
+  padding: 1.2rem;
+  border: none;
+  cursor: pointer;
+  }
+  `;
+
 
   static inbounds = {
     allTaks: {channel: 'ch_all_tasks'}
@@ -42,7 +61,7 @@ render() {
   return html`
     <p>${this.errTask ? this.errTask : ""}</p>
     ${this.allTaks?.map((task: Task) => html`<task-card .task=${task}>}</task-card>`)}
-    <button @click="${() => this.pageController.navigate('not-found')}">Go to not page</button>
+    <md-elevated-button class="new-task"><md-icon>add</md-icon></md-elevated-button>
     `;
   }
   // Métodos
