@@ -1,12 +1,36 @@
-import { LitElement,html } from "lit";
+import { LitElement,html, css} from "lit";
 import { customElement } from "lit/decorators.js";
+import "../../components/task-formulario.ts"
+import {t, updateWhenLocaleResourcesChange} from '@open-cells/localize';
 
 @customElement("add-tasks-page")
 export class AddTasksPage extends LitElement {
+  constructor() {
+    super();
+    // @ts-ignore
+    updateWhenLocaleResourcesChange(this);
+  }
+  
+  static styles = css`
+      :host {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+        & h2 {
+        text-align: center;
+        font-size: 1rem;
+        margin-top: 0;
+        }
+      }
+  `;
+
+
   render () {
     return html`
-      <h1>Add Tasks Page</h1>
-      <p>This is the add tasks page</p>
+   
+      <h2>${t("add-task-title")}</h2>
+      <task-formulario></task-formulario>
+     
     `;
   }
 }

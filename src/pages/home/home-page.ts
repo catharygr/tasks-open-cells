@@ -61,7 +61,7 @@ render() {
   return html`
     <p>${this.errTask ? this.errTask : ""}</p>
     ${this.allTaks?.map((task: Task) => html`<task-card .task=${task}>}</task-card>`)}
-    <md-elevated-button class="new-task"><md-icon>add</md-icon></md-elevated-button>
+    <md-elevated-button @click=${() => this.pageController.navigate("add-task")} class="new-task"><md-icon>add</md-icon></md-elevated-button>
     `;
   }
   // Métodos
