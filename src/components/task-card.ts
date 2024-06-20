@@ -68,11 +68,12 @@ export class TaskCard extends LitElement {
             ${this.task.tags.map((tag: any) => html`<span>${tag} <md-icon>close</md-icon></span>`)}
           </div>
           <div class="ctrl-btn">
-            <md-icon @click=${() => this.dispatchEvent(new CustomEvent('delete-task', { detail: this.task }))}>delete</md-icon>
-            <md-icon @click=${() => this.dispatchEvent(new CustomEvent('edit-task', { detail: this.task }))}>edit</md-icon>
+            <md-icon @click=${() => this.dispatchEvent(new CustomEvent('delete-task', { detail: this.task, bubbles: true, composed: true }))}>delete</md-icon>
+            <md-icon @click=${() => this.dispatchEvent(new CustomEvent('edit-task', { detail: this.task, bubbles: true, composed: true }))}>edit</md-icon>
           </div>
         </div>
       </div>
     `;
   }
+
 }

@@ -12,8 +12,6 @@ export class NotFound extends LitElement {
     updateWhenLocaleResourcesChange(this);
   }
 
-  
-
 
   static styles = css `
   .container-no-found {
@@ -53,5 +51,3 @@ export class NotFound extends LitElement {
 }
 
 
-// Estos no son los droides que estás buscando.
-// We're sorry, we couldn't find that page. You can go back to the home page:
