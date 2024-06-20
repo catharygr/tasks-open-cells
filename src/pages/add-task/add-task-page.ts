@@ -10,12 +10,11 @@ export class AddTasksPage extends LitElement {
     // @ts-ignore
     updateWhenLocaleResourcesChange(this);
   }
-  
+
   static styles = css`
       :host {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
         & h2 {
         text-align: center;
         font-size: 1rem;
