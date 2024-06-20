@@ -2,6 +2,7 @@ import { html, LitElement, PropertyValueMap } from 'lit';
 import { PageController } from '@open-cells/page-controller';
 import { customElement, state } from 'lit/decorators.js';
 import "../../components/task-card.ts";
+import { Task } from '../../utils/types.js';
 
 
 @customElement('home-page')
@@ -40,7 +41,7 @@ render() {
   console.log(this.allTaks)
   return html`
     <p>${this.errTask ? this.errTask : ""}</p>
-    ${this.allTaks?.map((task: any) => html`<task-card .task=${task}>}</task-card>`)}
+    ${this.allTaks?.map((task: Task) => html`<task-card .task=${task}>}</task-card>`)}
     <button @click="${() => this.pageController.navigate('not-found')}">Go to not page</button>
     `;
   }
@@ -53,7 +54,7 @@ render() {
       .catch(error => this.errTask = error.message || "Error fetching tasks");
     }
 
-    deleteTask(task: any) {
+    deleteTask(task: Task) {
       fetch(`http://localhost:3000/tasks/${task.id}`, {
         method: 'DELETE',
       })
@@ -63,7 +64,7 @@ render() {
       .catch(error => this.errTask = error.message || "Error deleting task");
     }
 
-    editTask(task: any) {
+    editTask(task: Task) {
       console.log(task);
     }
 

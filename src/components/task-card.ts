@@ -1,12 +1,15 @@
 import { LitElement,html,css } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import '@material/web/icon/icon.js';
+import { Task } from "../utils/types.js";
 
 
 @customElement("task-card")
 export class TaskCard extends LitElement {
 
-  @property({ type: Object }) task: any;
+  @property({ type: Object })
+  task!: Task;
+
   static styles = css`
     .task-card {
       border: 1px solid #ccc;
