@@ -71,18 +71,24 @@ export class TaskFormulario extends LitElement {
     console.log(this._task);
     return html`
       <form @submit=${this.sendTask}>
-        <md-outlined-select id="type" label="Select a type">
+        <md-outlined-select
+          id="type"
+          label="Select a type"
+          value=${this._task.type}
+        >
           <md-select-option value="personal">Personal</md-select-option>
           <md-select-option value="work">Work</md-select-option>
           <md-select-option value="shopping">Shopping</md-select-option>
         </md-outlined-select>
         <md-outlined-text-field
+          value=${this._task.title}
           id="title"
           type="text"
           label="Title"
           required
         ></md-outlined-text-field>
         <md-outlined-text-field
+          value=${this._task.description}
           id="description"
           type="textarea"
           label="Description"
@@ -90,6 +96,7 @@ export class TaskFormulario extends LitElement {
           rows="6"
         ></md-outlined-text-field>
         <md-outlined-text-field
+          value=${this._task.tags.join(';')}
           id="tags"
           type="text"
           label="Tags"
@@ -126,6 +133,5 @@ export class TaskFormulario extends LitElement {
     this._title.value = '';
     this._description.value = '';
     this._tags.value = '';
-    this._taskTypeSelect.selectedIndex = -1;
   }
 }
