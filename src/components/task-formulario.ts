@@ -139,7 +139,9 @@ export class TaskFormulario extends LitElement {
       .catch((error) => {
         console.error('Error:', error);
       });
+    this.isEditing = false;
   }
+
   editOldTask(e: Event) {
     e.preventDefault();
     this._task.id = this.editedTask?.id;
@@ -172,5 +174,6 @@ export class TaskFormulario extends LitElement {
       .catch((error) => {
         console.error('Error:', error);
       });
+    this.isEditing = false;
   }
 }

@@ -2,12 +2,12 @@
   "tasks": [
     {
       "id": 10,
-      "title": "Task 10",
+      "title": "Task 10 editandolo",
       "description": "This is task 10",
       "tags": [
         "tag10"
       ],
-      "type": "SuperMercado"
+      "type": ""
     },
     {
       "id": 13,
@@ -37,31 +37,8 @@
       "type": "personal"
     },
     {
-      "id": "8adc9d02-08db-4824-9ab8-5f6e45742c20",
-      "title": "drwefre",
-      "description": "erewareawra",
-      "tags": [
-        "werwear"
-      ],
-      "type": ""
-    },
-    {
-      "id": "2ac98727-da30-4fbf-b95c-c7f5de980ee1",
-      "title": "ertyeryrwt sdadaSDASDAS",
-      "description": "",
-      "tags": [],
-      "type": ""
-    },
-    {
-      "id": "2a139681-f416-4936-9b0a-953a8877e109",
-      "title": "Task 10 editada",
-      "description": "",
-      "tags": [],
-      "type": ""
-    },
-    {
-      "id": "f64ffd08-f083-418f-a0a7-c2d4eac8d2e2",
-      "title": "Task 10 editada",
+      "id": "fc719f2a-771c-4794-a76f-5949a61679ac",
+      "title": "Task 10 editandolo  otra vez",
       "description": "",
       "tags": [],
       "type": ""
