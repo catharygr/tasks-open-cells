@@ -73,7 +73,7 @@ export class TaskFormulario extends LitElement {
 
   render() {
     return html`
-      <form @submit=${!this.isEditing ? this.editOldTask : this.sendTask}>
+      <form @submit=${this.isEditing ? this.editOldTask : this.sendTask}>
         <md-outlined-select id="type">
           <md-select-option value="" selected>Select a type</md-select-option>
           <md-select-option value="personal">Personal</md-select-option>
@@ -139,7 +139,6 @@ export class TaskFormulario extends LitElement {
       .catch((error) => {
         console.error('Error:', error);
       });
-    this.isEditing = false;
   }
 
   editOldTask(e: Event) {
@@ -174,6 +173,5 @@ export class TaskFormulario extends LitElement {
       .catch((error) => {
         console.error('Error:', error);
       });
-    this.isEditing = false;
   }
 }
