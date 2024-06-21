@@ -1,5 +1,5 @@
 import { LitElement, html, css, PropertyValueMap } from 'lit';
-import { customElement, state, query } from 'lit/decorators.js';
+import { customElement, state, query, property } from 'lit/decorators.js';
 import '@material/web/textfield/outlined-text-field.js';
 import '@material/web/select/outlined-select.js';
 import '@material/web/select/select-option.js';
@@ -22,6 +22,11 @@ export class TaskFormulario extends LitElement {
     }
   `;
 
+  @property({ type: Object })
+  paramsTask = {};
+  @property({ type: Boolean })
+  isEditing = false;
+
   @state()
   private _task: Task = {
     id: '',
@@ -30,6 +35,12 @@ export class TaskFormulario extends LitElement {
     tags: [],
     type: '',
   };
+
+  onPageEnter() {
+    if (this.isEditing) {
+      this._task = this.paramsTask as Task;
+    }
+  }
 
   @query('#type')
   private _type!: HTMLSelectElement;
@@ -62,7 +73,7 @@ export class TaskFormulario extends LitElement {
   }
 
   render() {
-    console.log(this._task);
+    console.log(this.paramsTask, this.isEditing);
     return html`
       <form @submit=${this.sendTask}>
         <md-outlined-select id="type">

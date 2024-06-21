@@ -1,4 +1,4 @@
-import { RouteDefinition } from '@open-cells/core/types'; 
+import { RouteDefinition } from '@open-cells/core/types';
 
 export const routes: RouteDefinition[] = [
   {
@@ -27,7 +27,7 @@ export const routes: RouteDefinition[] = [
   },
   {
     path: '/tasks/edit/:taskId',
-    name: 'edit-tasks',
+    name: 'edit-task',
     component: 'edit-tasks-page',
     action: async () => {
       await import('../pages/edit-task/edit-task-page.js');
@@ -42,6 +42,4 @@ export const routes: RouteDefinition[] = [
       await import('../pages/not-found/not-found-page.js');
     },
   },
-
- 
 ];

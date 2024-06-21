@@ -1,12 +1,16 @@
-import { LitElement,html } from "lit";
-import { customElement } from "lit/decorators.js";
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import '../../components/task-formulario.js';
 
-@customElement("edit-tasks-page")
+@customElement('edit-tasks-page')
 export class EditTasksPage extends LitElement {
-  render () {
-    return html`
-      <h1>Edit Tasks Page</h1>
-      <p>This is the edit tasks page</p>
-    `;
+  @property({ type: Object })
+  params = {};
+
+  render() {
+    console.log(this.params);
+    return html``;
   }
 }
+
+// <task-formulario isEditing .paramsTask=${this.params}></task-formulario>
