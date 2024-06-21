@@ -24,7 +24,7 @@ export class TaskFormulario extends LitElement {
 
   @state()
   private _task: Task = {
-    id: 0,
+    id: '',
     title: '',
     description: '',
     tags: [],
@@ -65,7 +65,7 @@ export class TaskFormulario extends LitElement {
     console.log(this._task);
     return html`
       <form @submit=${this.sendTask}>
-        <md-outlined-select id="type" value=${this._task.type} selected>
+        <md-outlined-select id="type">
           <md-select-option value="" selected>Select a type</md-select-option>
           <md-select-option value="personal">Personal</md-select-option>
           <md-select-option value="work">Work</md-select-option>
@@ -99,6 +99,7 @@ export class TaskFormulario extends LitElement {
 
   sendTask(e: Event) {
     e.preventDefault();
+    this._task.id = crypto.randomUUID();
     fetch('http://localhost:3000/tasks', {
       method: 'POST',
       headers: {
@@ -107,22 +108,21 @@ export class TaskFormulario extends LitElement {
       body: JSON.stringify(this._task),
     })
       .then(() => {
+        this._task = {
+          id: '',
+          title: '',
+          description: '',
+          tags: [],
+          type: '',
+        };
+        this._type.value = '';
+        this._title.value = '';
+        this._description.value = '';
+        this._tags.value = '';
         this.pageControler.navigate('home');
       })
       .catch((error) => {
         console.error('Error:', error);
       });
-
-    this._task = {
-      id: 0,
-      title: '',
-      description: '',
-      tags: [],
-      type: '',
-    };
-    this._type.value = '';
-    this._title.value = '';
-    this._description.value = '';
-    this._tags.value = '';
   }
 }

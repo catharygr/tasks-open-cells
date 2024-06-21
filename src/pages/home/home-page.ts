@@ -95,5 +95,6 @@ export class HomePage extends LitElement {
 
   editTask(task: Task) {
     console.log(task);
+    this.pageController.navigate('edit-task', { taskId: task.id, ...task });
   }
 }
