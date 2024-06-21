@@ -22,8 +22,6 @@ export class TaskFormulario extends LitElement {
     }
   `;
 
-  @property({ type: Object })
-  paramsTask = {};
   @property({ type: Boolean })
   isEditing = false;
 
@@ -36,11 +34,16 @@ export class TaskFormulario extends LitElement {
     type: '',
   };
 
-  onPageEnter() {
-    if (this.isEditing) {
-      this._task = this.paramsTask as Task;
-    }
-  }
+  static inbounds = {
+    editedTask: {
+      channel: 'ch_edited_task',
+      action: (task: Task) => {
+        if (this.isEditing) {
+          this._task = task;
+        }
+      },
+    },
+  };
 
   @query('#type')
   private _type!: HTMLSelectElement;
@@ -73,7 +76,6 @@ export class TaskFormulario extends LitElement {
   }
 
   render() {
-    console.log(this.paramsTask, this.isEditing);
     return html`
       <form @submit=${this.sendTask}>
         <md-outlined-select id="type">

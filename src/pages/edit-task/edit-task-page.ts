@@ -9,8 +9,6 @@ export class EditTasksPage extends LitElement {
 
   render() {
     console;
-    return html`
-      <task-formulario isEditing .paramsTask=${this.params}></task-formulario>
-    `;
+    return html` <task-formulario isEditing></task-formulario> `;
   }
 }
