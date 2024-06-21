@@ -30,141 +30,41 @@
       "type": "shopping"
     },
     {
-      "id": 15,
-      "title": "asaDf",
-      "description": "sdfdsagsadg",
+      "id": "57488814-b60a-4509-b02e-4266993907a7",
+      "title": "fhfhfhf",
+      "description": "ghfhfjjjgf",
+      "tags": [],
+      "type": "personal"
+    },
+    {
+      "id": "8adc9d02-08db-4824-9ab8-5f6e45742c20",
+      "title": "drwefre",
+      "description": "erewareawra",
+      "tags": [
+        "werwear"
+      ],
+      "type": ""
+    },
+    {
+      "id": "2ac98727-da30-4fbf-b95c-c7f5de980ee1",
+      "title": "ertyeryrwt sdadaSDASDAS",
+      "description": "",
       "tags": [],
       "type": ""
     },
     {
-      "id": 16,
-      "title": "rwerweqrq",
-      "description": "erwerweqrweqrwe",
-      "tags": [
-        "ewrewq"
-      ],
-      "type": "work"
-    },
-    {
-      "id": 17,
-      "title": ",,./.",
-      "description": "ijopioppol",
+      "id": "2a139681-f416-4936-9b0a-953a8877e109",
+      "title": "Task 10 editada",
+      "description": "",
       "tags": [],
       "type": ""
     },
     {
-      "id": 18,
-      "title": "ewrwer",
-      "description": "ewrwerw",
-      "tags": [],
-      "type": "personal"
-    },
-    {
-      "id": 19,
-      "title": "e2wrer",
-      "description": "werfwer",
-      "tags": [],
-      "type": "personal"
-    },
-    {
-      "id": 20,
-      "title": "cxvfzbg",
-      "description": "fhbfghbfgh",
-      "tags": [
-        "fghfg"
-      ],
-      "type": "shopping"
-    },
-    {
-      "id": 21,
-      "title": "wqerqrq",
-      "description": "qwewrqwqw",
-      "tags": [
-        "wqeqwe"
-      ],
-      "type": "personal"
-    },
-    {
-      "id": 22,
-      "title": "wq",
-      "description": "qws",
+      "id": "f64ffd08-f083-418f-a0a7-c2d4eac8d2e2",
+      "title": "Task 10 editada",
+      "description": "",
       "tags": [],
       "type": ""
-    },
-    {
-      "id": 23,
-      "title": "ewR",
-      "description": "EWRWER",
-      "tags": [
-        "EWRW"
-      ],
-      "type": "personal"
-    },
-    {
-      "id": 24,
-      "title": "Sqsq",
-      "description": "WQedw",
-      "tags": [],
-      "type": "personal"
-    },
-    {
-      "id": 25,
-      "title": "kll",
-      "description": "';'./",
-      "tags": [],
-      "type": "personal"
-    },
-    {
-      "id": 26,
-      "title": "sdfdfgdf",
-      "description": "drftrsfdz",
-      "tags": [
-        "dfrsdzf"
-      ],
-      "type": "personal"
-    },
-    {
-      "id": 27,
-      "title": "dfawefwe",
-      "description": "erwertwer",
-      "tags": [
-        "erewr"
-      ],
-      "type": "personal"
-    },
-    {
-      "id": "d12ff915-2aaf-45c9-9ab6-2945d1b9533b",
-      "title": "jkkj",
-      "description": "kkjjjk",
-      "tags": [],
-      "type": ""
-    },
-    {
-      "id": "3b8ccde0-9d15-49a9-93f6-dcb31a49dd43",
-      "title": "rtsrysr",
-      "description": "ertsertyrsr",
-      "tags": [
-        "tsret"
-      ],
-      "type": "personal"
-    },
-    {
-      "id": "02778ab8-eafb-4a48-8bf6-3ab9d968dff3",
-      "title": "rter",
-      "description": "rtete",
-      "tags": [
-        "ertwe"
-      ],
-      "type": "personal"
-    },
-    {
-      "id": "b2c8415b-dbe3-4bb1-a0be-153158cd2b40",
-      "title": "efeqr",
-      "description": "reterq",
-      "tags": [
-        "reqtgeq"
-      ],
-      "type": "personal"
     }
   ]
 }

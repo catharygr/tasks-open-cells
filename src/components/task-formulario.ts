@@ -9,6 +9,7 @@ import { PageController } from '@open-cells/page-controller';
 
 @customElement('task-formulario')
 export class TaskFormulario extends LitElement {
+  [x: string]: any;
   pageControler = new PageController(this);
   static styles = css`
     form {
@@ -37,11 +38,6 @@ export class TaskFormulario extends LitElement {
   static inbounds = {
     editedTask: {
       channel: 'ch_edited_task',
-      action: (task: Task) => {
-        if (this.isEditing) {
-          this._task = task;
-        }
-      },
     },
   };
 
@@ -77,7 +73,7 @@ export class TaskFormulario extends LitElement {
 
   render() {
     return html`
-      <form @submit=${this.sendTask}>
+      <form @submit=${!this.isEditing ? this.editOldTask : this.sendTask}>
         <md-outlined-select id="type">
           <md-select-option value="" selected>Select a type</md-select-option>
           <md-select-option value="personal">Personal</md-select-option>
@@ -85,14 +81,16 @@ export class TaskFormulario extends LitElement {
           <md-select-option value="shopping">Shopping</md-select-option>
         </md-outlined-select>
         <md-outlined-text-field
-          value=${this._task.title}
+          value=${this.isEditing ? this.editedTask?.title : this._task.title}
           id="title"
           type="text"
           label="Title"
           required
         ></md-outlined-text-field>
         <md-outlined-text-field
-          value=${this._task.description}
+          value=${this.isEditing
+            ? this.editedTask?.description
+            : this._task.description}
           id="description"
           type="textarea"
           label="Description"
@@ -100,12 +98,16 @@ export class TaskFormulario extends LitElement {
           rows="6"
         ></md-outlined-text-field>
         <md-outlined-text-field
-          value=${this._task.tags.join(';')}
+          value=${this.isEditing
+            ? this.editedTask?.tags
+            : this._task.tags.join(';')}
           id="tags"
           type="text"
           label="Tags"
         ></md-outlined-text-field>
-        <md-filled-button>Create</md-filled-button>
+        <md-filled-button
+          >${this.isEditing ? 'Save edit' : 'Create task'}</md-filled-button
+        >
       </form>
     `;
   }
@@ -115,6 +117,39 @@ export class TaskFormulario extends LitElement {
     this._task.id = crypto.randomUUID();
     fetch('http://localhost:3000/tasks', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(this._task),
+    })
+      .then(() => {
+        this._task = {
+          id: '',
+          title: '',
+          description: '',
+          tags: [],
+          type: '',
+        };
+        this._type.value = '';
+        this._title.value = '';
+        this._description.value = '';
+        this._tags.value = '';
+        this.pageControler.navigate('home');
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+  editOldTask(e: Event) {
+    e.preventDefault();
+    this._task.id = this.editedTask?.id;
+    this._task.type = this._type.value;
+    this._task.title = this._title.value;
+    this._task.description = this._description.value;
+    this._task.tags = this._tags.value.split(';');
+
+    fetch(`http://localhost:3000/tasks/${this._task.id}`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
