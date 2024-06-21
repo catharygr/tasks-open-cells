@@ -56,6 +56,7 @@ export class HomePage extends LitElement {
   }
 
   render() {
+    console.log(this.allTaks);
     return html`
       <page-layout>
         ${this.errTask ? this.errTask : ''}
