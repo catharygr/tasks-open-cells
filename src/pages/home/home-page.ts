@@ -1,7 +1,7 @@
 import { html, LitElement, PropertyValueMap, css } from 'lit';
 import { PageController } from '@open-cells/page-controller';
 import { customElement, state } from 'lit/decorators.js';
-import '../../components/task-card.ts';
+import '../../components/task-card.js';
 import { Task } from '../../utils/types.js';
 import '@material/web/button/elevated-button.js';
 import '@material/web/icon/icon.js';
