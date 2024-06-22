@@ -80,16 +80,22 @@ export class EditTasksPage extends LitElement {
     return html`
       <form @submit=${this.editOldTask}>
         <md-outlined-select id="type">
-          <md-select-option value="" selected
+          <md-select-option ?selected=${this.editedTask?.type === ''} value=""
             ><div slot="headline">${t('form-select')}</div></md-select-option
           >
-          <md-select-option value="personal"
+          <md-select-option
+            ?selected=${this.editedTask?.type === 'personal'}
+            value="personal"
             ><div slot="headline">Personal</div></md-select-option
           >
-          <md-select-option value="work"
+          <md-select-option
+            ?selected=${this.editedTask?.type === 'work'}
+            value="work"
             ><div slot="headline">Work</div></md-select-option
           >
-          <md-select-option value="shopping"
+          <md-select-option
+            ?selected=${this.editedTask?.type === 'shopping'}
+            value="shopping"
             ><div slot="headline">Shopping</div></md-select-option
           >
         </md-outlined-select>

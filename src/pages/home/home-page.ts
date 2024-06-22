@@ -18,12 +18,10 @@ export class HomePage extends LitElement {
     }
     .new-task {
       position: absolute;
-      bottom: 0.5rem;
+      bottom: 4rem;
       right: 1.5rem;
-      background-color: pink;
-      right: 1rem;
+      font-size: 2rem;
       padding: 1.2rem;
-      border: none;
       cursor: pointer;
     }
   `;
