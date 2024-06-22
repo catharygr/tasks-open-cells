@@ -13,7 +13,8 @@
     "form-title": "Title",
     "form-description": "Description",
     "form-tags": "Tags",
-    "form-btn-create": "Create"
+    "form-btn-edit": "Edit",
+    "form-btn-add": "Add"
   },
   "es": {
     "app-title": "Tarea App",
@@ -29,6 +30,7 @@
     "form-title": "Título",
     "form-description": "Descripción",
     "form-tags": "Etiquetas",
-    "form-btn-create": "Crear"
+    "form-btn-edit": "Editar",
+    "form-btn-add": "Agregar"
   }
 }

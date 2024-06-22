@@ -3,6 +3,10 @@ import { customElement, state, query } from 'lit/decorators.js';
 import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 import { Task } from '../../utils/types.js';
 import { PageController } from '@open-cells/page-controller';
+import '@material/web/textfield/outlined-text-field.js';
+import '@material/web/select/outlined-select.js';
+import '@material/web/select/select-option.js';
+import '@material/web/button/filled-button.js';
 
 @customElement('add-tasks-page')
 export class AddTasksPage extends LitElement {
@@ -23,6 +27,15 @@ export class AddTasksPage extends LitElement {
         margin-top: 0;
       }
     }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0 1rem;
+      & last-child {
+        margin-top: 1rem;
+      }
+    }
   `;
 
   @state()
@@ -32,12 +45,6 @@ export class AddTasksPage extends LitElement {
     description: '',
     tags: [],
     type: '',
-  };
-
-  static inbounds = {
-    editedTask: {
-      channel: 'ch_edited_task',
-    },
   };
 
   @query('#type')
@@ -71,8 +78,10 @@ export class AddTasksPage extends LitElement {
   }
 
   render() {
+    console.log(this._task);
     return html`
-      <form @submit=${!this.isEditing ? this.editOldTask : this.sendTask}>
+      <h2>${t('add-task-title')}</h2>
+      <form @submit=${this.sendTask}>
         <md-outlined-select id="type">
           <md-select-option value="" selected></md-select-option>
           <md-select-option value="personal">Personal</md-select-option>
@@ -80,16 +89,12 @@ export class AddTasksPage extends LitElement {
           <md-select-option value="shopping">Shopping</md-select-option>
         </md-outlined-select>
         <md-outlined-text-field
-          value=${this.isEditing ? this.editedTask?.title : this._task.title}
           id="title"
           type="text"
           label=${t('form-title')}
           required
         ></md-outlined-text-field>
         <md-outlined-text-field
-          value=${this.isEditing
-            ? this.editedTask?.description
-            : this._task.description}
           id="description"
           type="textarea"
           label=${t('form-description')}
@@ -97,14 +102,11 @@ export class AddTasksPage extends LitElement {
           rows="6"
         ></md-outlined-text-field>
         <md-outlined-text-field
-          value=${this.isEditing
-            ? this.editedTask?.tags
-            : this._task.tags.join(';')}
           id="tags"
           type="text"
           label=${t('form-tags')}
         ></md-outlined-text-field>
-        <md-filled-button>${t('form-btn-create')}</md-filled-button>
+        <md-filled-button>${t('form-btn-add')}</md-filled-button>
       </form>
     `;
   }
@@ -136,10 +138,5 @@ export class AddTasksPage extends LitElement {
       .catch((error) => {
         console.error('Error:', error);
       });
-    this.isEditing = false;
   }
-
-  // render() {
-  //   return html` <h2>${t('add-task-title')}</h2> `;
-  // }
 }

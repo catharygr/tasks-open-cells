@@ -29,8 +29,8 @@ export class TaskFormulario extends LitElement {
     }
   `;
 
-  @property({ type: Boolean })
-  isEditing = false;
+  // @property({ type: Boolean })
+  // isEditing = false;
 
   @state()
   private _task: Task = {

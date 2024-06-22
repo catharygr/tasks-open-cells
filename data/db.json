@@ -2,13 +2,13 @@
   "tasks": [
     {
       "id": 14,
-      "title": "ertyeryrwt",
-      "description": "tryrtyrety",
+      "title": "ertyeryrwt EDITAR Otra vez",
+      "description": "tryrtyrety EDITAR Otra vez",
       "tags": [
         "rty",
-        "dssg"
+        "dssg:EDITARñotra vez"
       ],
-      "type": "shopping"
+      "type": ""
     },
     {
       "id": "bd31bc66-c012-485d-a98d-608ea40da566",
@@ -25,6 +25,24 @@
       "description": "hjcghjgych",
       "tags": [
         "hgjgcjcgh"
+      ],
+      "type": "personal"
+    },
+    {
+      "id": "01042c12-4875-45df-9c8b-fd10d1dc20d9",
+      "title": "rwerwer",
+      "description": "erwqreqw",
+      "tags": [
+        "rqwrqwr"
+      ],
+      "type": "personal"
+    },
+    {
+      "id": "49a20370-f992-4935-a486-a8564f8be3ad",
+      "title": "weqwewrw",
+      "description": "ewqwre",
+      "tags": [
+        "rqwewqreq"
       ],
       "type": "personal"
     }
