@@ -4,33 +4,34 @@ import { customElement } from 'lit/decorators.js';
 import { ElementController } from '@open-cells/element-controller';
 import { routes } from '../router/routes.js';
 import { styles } from './app-index.css.js';
-import "./header.ts"
-import "./footer.ts"
+import './header.ts';
+import './footer.ts';
 
 startApp({
   routes,
   mainNode: 'app-content',
-  persistentPages: ['home'], 
+  viewLimit: 1,
   // @ts-ignore
-  interceptor: function(navigation, ctx) {
-    let intercept = false
+  interceptor: function (navigation, ctx) {
+    let intercept = false;
     let redirect;
 
-    if(
-      !sessionStorage.getItem("userToken") && 
+    if (
+      !sessionStorage.getItem('userToken') &&
       navigation.to?.page !== 'login'
     ) {
-      intercept = true; 
-      redirect = {page: 'login', params: {}}
+      intercept = true;
+      redirect = { page: 'login', params: {} };
     }
-    if(sessionStorage.getItem("userToken") && navigation.to?.page === 'login') {
-      intercept = true; 
+    if (
+      sessionStorage.getItem('userToken') &&
+      navigation.to?.page === 'login'
+    ) {
+      intercept = true;
     }
-    return {intercept, redirect};
-  }
+    return { intercept, redirect };
+  },
 });
-
-
 
 @customElement('app-index')
 export class AppIndex extends LitElement {
@@ -45,7 +46,6 @@ export class AppIndex extends LitElement {
         <slot></slot>
       </main>
       <footer-component></footer-component>
-
     `;
   }
 }
