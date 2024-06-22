@@ -76,29 +76,22 @@ export class EditTasksPage extends LitElement {
     });
   }
 
-  // updated(
-  //   changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>
-  // ): void {
-  //   super.updated(changedProperties);
-  //   // Verifica si editedTask ha cambiado.
-  //   if (changedProperties.has('editedTask') && this.editedTask) {
-  //     this._task = { ...this.editedTask }; // Asegúrate de que _task se actualiza con la tarea editada.
-  //     // Actualiza los campos del formulario directamente si es necesario.
-  //     this._type.value = this.editedTask.type;
-  //     this._title.value = this.editedTask.title;
-  //     this._description.value = this.editedTask.description;
-  //     this._tags.value = this.editedTask.tags.join(';');
-  //   }
-  // }
-
   render() {
     return html`
       <form @submit=${this.editOldTask}>
         <md-outlined-select id="type">
-          <md-select-option value="" selected></md-select-option>
-          <md-select-option value="personal">Personal</md-select-option>
-          <md-select-option value="work">Work</md-select-option>
-          <md-select-option value="shopping">Shopping</md-select-option>
+          <md-select-option value="" selected
+            ><div slot="headline">${t('form-select')}</div></md-select-option
+          >
+          <md-select-option value="personal"
+            ><div slot="headline">Personal</div></md-select-option
+          >
+          <md-select-option value="work"
+            ><div slot="headline">Work</div></md-select-option
+          >
+          <md-select-option value="shopping"
+            ><div slot="headline">Shopping</div></md-select-option
+          >
         </md-outlined-select>
         <md-outlined-text-field
           value=${this.editedTask?.title}

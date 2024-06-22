@@ -11,7 +11,7 @@ export class TaskCard extends LitElement {
   static styles = css`
     .task-card {
       border: 1px solid #ccc;
-      background-color: #f9f9f9;
+      background-color: rgb(232, 231, 209);
       border-radius: 5px;
       padding: 0.8rem;
       margin: 0.5rem 1rem;

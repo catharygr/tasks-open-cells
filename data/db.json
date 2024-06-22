@@ -2,51 +2,29 @@
   "tasks": [
     {
       "id": 14,
-      "title": "Todo banana",
+      "title": "BANANA",
       "description": "Banana",
       "tags": [
         "rty",
         "dssg,banana"
       ],
-      "type": ""
+      "type": "shopping"
     },
     {
-      "id": "bd31bc66-c012-485d-a98d-608ea40da566",
-      "title": "Quiero editarte",
-      "description": "WERW",
-      "tags": [
-        "WERWEREW",
-        "jiejrwet"
-      ],
-      "type": ""
-    },
-    {
-      "id": "f037e9a1-4b35-433b-9507-f297662b1e6f",
-      "title": "ngchjgch",
-      "description": "hjcghjgych",
-      "tags": [
-        "hgjgcjcgh"
-      ],
+      "id": "b35b32e9-0a8d-4d92-b726-058ae16a6fb8",
+      "title": "Personal",
+      "description": "Personal",
+      "tags": [],
       "type": "personal"
     },
     {
-      "id": "01042c12-4875-45df-9c8b-fd10d1dc20d9",
-      "title": "rwerwer Mamamma",
-      "description": "erwqreqw SSDF",
+      "id": "65df66ce-41ef-4b80-8881-1d50e340f932",
+      "title": "Sgopping",
+      "description": "Shopping",
       "tags": [
-        "rqwrqwr",
-        "FFFFFF"
+        "shoppinj"
       ],
-      "type": ""
-    },
-    {
-      "id": "49a20370-f992-4935-a486-a8564f8be3ad",
-      "title": "weqwewrw",
-      "description": "ewqwre",
-      "tags": [
-        "rqwewqreq"
-      ],
-      "type": "personal"
+      "type": "shopping"
     }
   ]
 }

@@ -82,10 +82,18 @@ export class AddTasksPage extends LitElement {
       <h2>${t('add-task-title')}</h2>
       <form @submit=${this.sendTask}>
         <md-outlined-select id="type">
-          <md-select-option value="" selected></md-select-option>
-          <md-select-option value="personal">Personal</md-select-option>
-          <md-select-option value="work">Work</md-select-option>
-          <md-select-option value="shopping">Shopping</md-select-option>
+          <md-select-option value="" selected
+            ><div slot="headline">${t('form-select')}</div></md-select-option
+          >
+          <md-select-option value="personal"
+            ><div slot="headline">Personal</div></md-select-option
+          >
+          <md-select-option value="work"
+            ><div slot="headline">Work</div></md-select-option
+          >
+          <md-select-option value="shopping"
+            ><div slot="headline">Shopping</div></md-select-option
+          >
         </md-outlined-select>
         <md-outlined-text-field
           id="title"
