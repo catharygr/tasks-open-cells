@@ -6,9 +6,11 @@ import {
   updateWhenLocaleResourcesChange,
   setLang,
 } from '@open-cells/localize';
+import { PageController } from '@open-cells/page-controller';
 
 @customElement('header-component')
 export class HeaderComponent extends LitElement {
+  pageControler = new PageController(this);
   [x: string]: any;
   constructor() {
     super();
@@ -27,14 +29,17 @@ export class HeaderComponent extends LitElement {
         font-size: 1rem;
         margin: 0;
         place-self: center;
+        grid-column: 2 / 3;
       }
 
       & .icon-arrow {
         place-self: center start;
+        grid-column: 1 / 2;
       }
       & .icon-language {
         place-self: center end;
         cursor: pointer;
+        grid-column: 3 / -1;
       }
     }
   `;
@@ -51,12 +56,27 @@ export class HeaderComponent extends LitElement {
     console.log(this.currentPage?.value.currentPage);
     return html`
       <header>
-        <md-icon class="icon-arrow">arrow_back</md-icon>
+        ${this.displayIcon()}
         <h1>${t('app-title') ?? 'Taks App'}</h1>
         <md-icon @click=${this.toggleLanguage} class="icon-language"
           >language</md-icon
         >
       </header>
+    `;
+  }
+
+  displayIcon() {
+    const currentPageValue = this.currentPage?.value.currentPage;
+    if (currentPageValue === 'home' || currentPageValue === 'login') {
+      return html``;
+    } else {
+    }
+    return html`
+      <md-icon
+        @click=${() => this.pageControler.navigate('home')}
+        class="icon-arrow"
+        >arrow_back</md-icon
+      >
     `;
   }
 }

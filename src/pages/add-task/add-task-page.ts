@@ -78,7 +78,6 @@ export class AddTasksPage extends LitElement {
   }
 
   render() {
-    console.log(this._task);
     return html`
       <h2>${t('add-task-title')}</h2>
       <form @submit=${this.sendTask}>
