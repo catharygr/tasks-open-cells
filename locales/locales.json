@@ -8,8 +8,12 @@
     "footer-by": "by",
     "not-title": "We're sorry, we couldn't find that page. You can go back to the home page:",
     "not-description": "These aren't the droids you're looking for. Move along.",
-    "add-task-title": "Add New Task"
-
+    "add-task-title": "Add New Task",
+    "form-select": "Select a type",
+    "form-title": "Title",
+    "form-description": "Description",
+    "form-tags": "Tags",
+    "form-btn-create": "Create"
   },
   "es": {
     "app-title": "Tarea App",
@@ -20,7 +24,11 @@
     "footer-by": "Hecho por",
     "not-title": "Lo sentimos, no hemos encontrado esa página, puedes volver a home:",
     "not-description": "Estos no son los droides que estás buscando. Sigue adelante.",
-    "add-task-title": "Agregar nueva tarea"
-    
+    "add-task-title": "Agregar nueva tarea",
+    "form-select": "Selecciona un tipo",
+    "form-title": "Título",
+    "form-description": "Descripción",
+    "form-tags": "Etiquetas",
+    "form-btn-create": "Crear"
   }
 }

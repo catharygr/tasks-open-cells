@@ -6,9 +6,15 @@ import '@material/web/select/select-option.js';
 import '@material/web/button/filled-button.js';
 import { Task } from '../utils/types.js';
 import { PageController } from '@open-cells/page-controller';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 
 @customElement('task-formulario')
 export class TaskFormulario extends LitElement {
+  constructor() {
+    super();
+    // @ts-ignore
+    updateWhenLocaleResourcesChange(this);
+  }
   [x: string]: any;
   pageControler = new PageController(this);
   static styles = css`
@@ -75,7 +81,7 @@ export class TaskFormulario extends LitElement {
     return html`
       <form @submit=${!this.isEditing ? this.editOldTask : this.sendTask}>
         <md-outlined-select id="type">
-          <md-select-option value="" selected>Select a type</md-select-option>
+          <md-select-option value="" selected></md-select-option>
           <md-select-option value="personal">Personal</md-select-option>
           <md-select-option value="work">Work</md-select-option>
           <md-select-option value="shopping">Shopping</md-select-option>
@@ -84,7 +90,7 @@ export class TaskFormulario extends LitElement {
           value=${this.isEditing ? this.editedTask?.title : this._task.title}
           id="title"
           type="text"
-          label="Title"
+          label=${t('form-title')}
           required
         ></md-outlined-text-field>
         <md-outlined-text-field
@@ -93,7 +99,7 @@ export class TaskFormulario extends LitElement {
             : this._task.description}
           id="description"
           type="textarea"
-          label="Description"
+          label=${t('form-description')}
           required
           rows="6"
         ></md-outlined-text-field>
@@ -103,11 +109,9 @@ export class TaskFormulario extends LitElement {
             : this._task.tags.join(';')}
           id="tags"
           type="text"
-          label="Tags"
+          label=${t('form-tags')}
         ></md-outlined-text-field>
-        <md-filled-button
-          >${this.isEditing ? 'Save edit' : 'Create task'}</md-filled-button
-        >
+        <md-filled-button>${t('form-btn-create')}</md-filled-button>
       </form>
     `;
   }
