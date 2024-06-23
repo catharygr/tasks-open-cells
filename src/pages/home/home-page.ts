@@ -34,7 +34,6 @@ export class HomePage extends LitElement {
 
   static outbounds = {
     allTaks: { channel: 'ch_all_tasks' },
-    editedTask: { channel: 'ch_edited_task' },
   };
 
   @state()
@@ -94,7 +93,6 @@ export class HomePage extends LitElement {
   }
 
   editTask(task: Task) {
-    this.editedTask = task;
-    this.pageController.navigate('edit-task', { taskId: task.id });
+    this.pageController.navigate('edit-task', { taskId: task.id, ...task });
   }
 }

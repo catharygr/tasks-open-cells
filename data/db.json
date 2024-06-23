@@ -14,21 +14,33 @@
       "id": "f0c45393-668f-4ef8-9384-41355631f345",
       "title": "Reunión con el equipo marketing",
       "description": "Resolver el problema de demasiada publicidad en el carrusel",
+      "type": "work",
       "tags": [
         "página web",
         " reunión"
-      ],
-      "type": "work"
+      ]
     },
     {
       "id": "891d225a-a5e6-4b6c-b086-e5b535f66249",
       "title": "Cena de cumpleaños de Maria",
       "description": "No olvidar que el hijo de Juan es alérgico",
+      "type": "shopping",
       "tags": [
         "comprar la tarta",
-        " ensalada"
-      ],
-      "type": "shopping"
+        " ensalada",
+        " zumos"
+      ]
+    },
+    {
+      "id": "dfb842b5-13d0-4d12-812d-3d7398c8ec46",
+      "title": "Para bora",
+      "description": "rr editado",
+      "type": "personal",
+      "tags": [
+        "dgfg",
+        " sfsgdgf",
+        " editado"
+      ]
     }
   ]
 }

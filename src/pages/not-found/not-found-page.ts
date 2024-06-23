@@ -16,27 +16,42 @@ export class NotFound extends LitElement {
   pageController = new PageController(this);
 
   static styles = css`
-  .container-no-found {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: rem;
-    padding: 1.6rem;
+    .container-no-found {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: rem;
+      padding: 1.6rem;
 
       & .btn-not-found {
         align-self: flex-start;
-    
+      }
+      img {
+        width: 100%;
+        max-width: 500px;
+        margin-top: 1rem;
+      }
+      .not-description {
+        font-size: 2rem;
+        font-weight: 900;
+      }
+      .all-together {
+        position: relative;
+        width: 100%;
+
+        & .not-description {
+          position: absolute;
+          width: 50%;
+          font-size: 1rem;
+          top: 0;
+          right: 0;
+          z-index: 1;
+          text-align: right;
+          padding: 1rem;
         }
-        img {
-            width: 100%;
-            max-width: 500px;
-            margin-top: 1rem;
-          }
-            .not-description  {
-              font-size: 2rem;
-              font-weight: 900;
-              }
+      }
+    }
   `;
   render() {
     return html`

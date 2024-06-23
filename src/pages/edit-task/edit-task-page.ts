@@ -1,5 +1,5 @@
-import { LitElement, html, PropertyValueMap, css } from 'lit';
-import { customElement, query } from 'lit/decorators.js';
+import { LitElement, html, css } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
 import '@material/web/textfield/outlined-text-field.js';
 import '@material/web/select/outlined-select.js';
 import '@material/web/select/select-option.js';
@@ -32,18 +32,13 @@ export class EditTasksPage extends LitElement {
     }
   `;
 
-  static inbounds = {
-    editedTask: {
-      channel: 'ch_edited_task',
-      data: {} as Task,
-    },
-  };
-
-  static outbounds = {
-    editedTask: {
-      channel: 'ch_edited_task',
-      data: {} as Task,
-    },
+  @property({ type: Object })
+  private params = {
+    id: '',
+    title: '',
+    description: '',
+    type: '',
+    tags: '',
   };
 
   @query('#type')
@@ -55,25 +50,13 @@ export class EditTasksPage extends LitElement {
   @query('#tags')
   private _tags!: HTMLInputElement;
 
-  protected firstUpdated(
-    _changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>
-  ): void {
-    this._type.addEventListener('change', (e) => {
-      this.editedTask.type = (e.target as HTMLSelectElement).value;
-      this.requestUpdate();
-    });
-    this._title.addEventListener('input', (e) => {
-      this.editedTask.title = (e.target as HTMLInputElement).value;
-      this.requestUpdate();
-    });
-    this._description.addEventListener('input', (e) => {
-      this.editedTask.description = (e.target as HTMLInputElement).value;
-      this.requestUpdate();
-    });
-    this._tags.addEventListener('input', (e) => {
-      this.editedTask.tags = (e.target as HTMLInputElement).value.split(';');
-      this.requestUpdate();
-    });
+  updated(changedProperties: { has: (arg0: string) => any }) {
+    if (changedProperties.has('params')) {
+      this._type.value = this.params.type;
+      this._title.value = this.params.title;
+      this._description.value = this.params.description;
+      this._tags.value = this.params.tags.replace(/,/g, ';');
+    }
   }
 
   render() {
@@ -81,34 +64,32 @@ export class EditTasksPage extends LitElement {
       <page-layout>
         <form @submit=${this.editOldTask}>
           <md-outlined-select id="type">
-            <md-select-option ?selected=${this.editedTask?.type === ''} value=""
+            <md-select-option ?selected=${this.params?.type === ''} value=""
               ><div slot="headline">${t('form-select')}</div></md-select-option
             >
             <md-select-option
-              ?selected=${this.editedTask?.type === 'personal'}
+              ?selected=${this.params?.type === 'personal'}
               value="personal"
               ><div slot="headline">Personal</div></md-select-option
             >
             <md-select-option
-              ?selected=${this.editedTask?.type === 'work'}
+              ?selected=${this.params?.type === 'work'}
               value="work"
               ><div slot="headline">Work</div></md-select-option
             >
             <md-select-option
-              ?selected=${this.editedTask?.type === 'shopping'}
+              ?selected=${this.params?.type === 'shopping'}
               value="shopping"
               ><div slot="headline">Shopping</div></md-select-option
             >
           </md-outlined-select>
           <md-outlined-text-field
-            value=${this.editedTask?.title}
             id="title"
             type="text"
             label=${t('form-title')}
             required
           ></md-outlined-text-field>
           <md-outlined-text-field
-            value=${this.editedTask?.description}
             id="description"
             type="textarea"
             label=${t('form-description')}
@@ -116,7 +97,6 @@ export class EditTasksPage extends LitElement {
             rows="6"
           ></md-outlined-text-field>
           <md-outlined-text-field
-            value=${this.editedTask?.tags.join(';')}
             id="tags"
             type="text"
             label=${t('form-tags')}
@@ -127,19 +107,21 @@ export class EditTasksPage extends LitElement {
     `;
   }
 
-  onpageEnter() {
-    this.updateFormFields();
-  }
-
   editOldTask(e: Event) {
     e.preventDefault();
-
-    fetch(`http://localhost:3000/tasks/${this.editedTask.id}`, {
+    const taskToSend: Task = {
+      id: this.params.id,
+      title: this._title.value,
+      description: this._description.value,
+      type: this._type.value,
+      tags: this._tags.value.split(';'),
+    };
+    fetch(`http://localhost:3000/tasks/${taskToSend.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(this.editedTask),
+      body: JSON.stringify(taskToSend),
     })
       .then(() => {
         this.pageControler.navigate('home');
@@ -147,14 +129,5 @@ export class EditTasksPage extends LitElement {
       .catch((error) => {
         console.error('Error:', error);
       });
-  }
-
-  updateFormFields() {
-    if (this.editedTask) {
-      this._type.value = this.editedTask.type || '';
-      this._title.value = this.editedTask.title || '';
-      this._description.value = this.editedTask.description || '';
-      this._tags.value = this.editedTask.tags.join(';') || '';
-    }
   }
 }
