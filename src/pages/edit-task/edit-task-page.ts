@@ -1,5 +1,5 @@
 import { LitElement, html, PropertyValueMap, css } from 'lit';
-import { customElement, query, state } from 'lit/decorators.js';
+import { customElement, query } from 'lit/decorators.js';
 import '@material/web/textfield/outlined-text-field.js';
 import '@material/web/select/outlined-select.js';
 import '@material/web/select/select-option.js';
@@ -32,18 +32,17 @@ export class EditTasksPage extends LitElement {
     }
   `;
 
-  @state()
-  private _task: Task = {
-    id: '',
-    title: '',
-    description: '',
-    tags: [],
-    type: '',
-  };
-
   static inbounds = {
     editedTask: {
       channel: 'ch_edited_task',
+      data: {} as Task,
+    },
+  };
+
+  static outbounds = {
+    editedTask: {
+      channel: 'ch_edited_task',
+      data: {} as Task,
     },
   };
 
@@ -60,19 +59,19 @@ export class EditTasksPage extends LitElement {
     _changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>
   ): void {
     this._type.addEventListener('change', (e) => {
-      this._task.type = (e.target as HTMLSelectElement).value;
+      this.editedTask.type = (e.target as HTMLSelectElement).value;
       this.requestUpdate();
     });
     this._title.addEventListener('input', (e) => {
-      this._task.title = (e.target as HTMLInputElement).value;
+      this.editedTask.title = (e.target as HTMLInputElement).value;
       this.requestUpdate();
     });
     this._description.addEventListener('input', (e) => {
-      this._task.description = (e.target as HTMLInputElement).value;
+      this.editedTask.description = (e.target as HTMLInputElement).value;
       this.requestUpdate();
     });
     this._tags.addEventListener('input', (e) => {
-      this._task.tags = (e.target as HTMLInputElement).value.split(';');
+      this.editedTask.tags = (e.target as HTMLInputElement).value.split(';');
       this.requestUpdate();
     });
   }
@@ -128,37 +127,34 @@ export class EditTasksPage extends LitElement {
     `;
   }
 
+  onpageEnter() {
+    this.updateFormFields();
+  }
+
   editOldTask(e: Event) {
     e.preventDefault();
-    this._task.id = this.editedTask?.id;
-    this._task.type = this._type.value;
-    this._task.title = this._title.value;
-    this._task.description = this._description.value;
-    this._task.tags = this._tags.value.split(';');
 
-    fetch(`http://localhost:3000/tasks/${this._task.id}`, {
+    fetch(`http://localhost:3000/tasks/${this.editedTask.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(this._task),
+      body: JSON.stringify(this.editedTask),
     })
       .then(() => {
-        this._task = {
-          id: '',
-          title: '',
-          description: '',
-          tags: [],
-          type: '',
-        };
-        this._type.value = '';
-        this._title.value = '';
-        this._description.value = '';
-        this._tags.value = '';
         this.pageControler.navigate('home');
       })
       .catch((error) => {
         console.error('Error:', error);
       });
+  }
+
+  updateFormFields() {
+    if (this.editedTask) {
+      this._type.value = this.editedTask.type || '';
+      this._title.value = this.editedTask.title || '';
+      this._description.value = this.editedTask.description || '';
+      this._tags.value = this.editedTask.tags.join(';') || '';
+    }
   }
 }
