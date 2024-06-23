@@ -27,6 +27,7 @@ startApp({
       navigation.to?.page === 'login'
     ) {
       intercept = true;
+      redirect = { page: 'home', params: {} };
     }
     return { intercept, redirect };
   },
