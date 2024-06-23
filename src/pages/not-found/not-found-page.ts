@@ -1,10 +1,10 @@
-import { LitElement,html,css } from "lit";
-import { customElement } from "lit/decorators.js";
+import { LitElement, html, css } from 'lit';
+import { customElement } from 'lit/decorators.js';
 import '@material/web/button/filled-button.js';
-import {t, updateWhenLocaleResourcesChange} from '@open-cells/localize';
+import '../../components/page-layout.js';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 
-
-@customElement("not-found-page")
+@customElement('not-found-page')
 export class NotFound extends LitElement {
   constructor() {
     super();
@@ -12,8 +12,7 @@ export class NotFound extends LitElement {
     updateWhenLocaleResourcesChange(this);
   }
 
-
-  static styles = css `
+  static styles = css`
   .container-no-found {
     display: flex;
     flex-direction: column;
@@ -36,18 +35,22 @@ export class NotFound extends LitElement {
               font-weight: 900;
               }
   `;
-  render () {
+  render() {
     return html`
-    <div class="container-no-found">
-      <h2>${t('not-title')}</h2>
-      <md-filled-button class="btn-not-found" @click=${() => window.location.href = '/'}>HOME</md-filled-button>
-      <div class="all-together">
-        <p class="not-description">${t('not-description')}</p>
-        <img src="/images/not-found.jpeg" alt="Imagen de error"/>
-      </div>
-    </div>
+      <page-layout>
+        <div class="container-no-found">
+          <h2>${t('not-title')}</h2>
+          <md-filled-button
+            class="btn-not-found"
+            @click=${() => (window.location.href = '/')}
+            >HOME</md-filled-button
+          >
+          <div class="all-together">
+            <p class="not-description">${t('not-description')}</p>
+            <img src="/images/not-found.jpeg" alt="Imagen de error" />
+          </div>
+        </div>
+      </page-layout>
     `;
   }
 }
-
-

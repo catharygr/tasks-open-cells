@@ -7,6 +7,7 @@ import '@material/web/button/filled-button.js';
 import { Task } from '../../utils/types.js';
 import { PageController } from '@open-cells/page-controller';
 import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
+import '../../components/page-layout.js';
 
 @customElement('edit-tasks-page')
 export class EditTasksPage extends LitElement {
@@ -78,50 +79,52 @@ export class EditTasksPage extends LitElement {
 
   render() {
     return html`
-      <form @submit=${this.editOldTask}>
-        <md-outlined-select id="type">
-          <md-select-option ?selected=${this.editedTask?.type === ''} value=""
-            ><div slot="headline">${t('form-select')}</div></md-select-option
-          >
-          <md-select-option
-            ?selected=${this.editedTask?.type === 'personal'}
-            value="personal"
-            ><div slot="headline">Personal</div></md-select-option
-          >
-          <md-select-option
-            ?selected=${this.editedTask?.type === 'work'}
-            value="work"
-            ><div slot="headline">Work</div></md-select-option
-          >
-          <md-select-option
-            ?selected=${this.editedTask?.type === 'shopping'}
-            value="shopping"
-            ><div slot="headline">Shopping</div></md-select-option
-          >
-        </md-outlined-select>
-        <md-outlined-text-field
-          value=${this.editedTask?.title}
-          id="title"
-          type="text"
-          label=${t('form-title')}
-          required
-        ></md-outlined-text-field>
-        <md-outlined-text-field
-          value=${this.editedTask?.description}
-          id="description"
-          type="textarea"
-          label=${t('form-description')}
-          required
-          rows="6"
-        ></md-outlined-text-field>
-        <md-outlined-text-field
-          value=${this.editedTask?.tags.join(';')}
-          id="tags"
-          type="text"
-          label=${t('form-tags')}
-        ></md-outlined-text-field>
-        <md-filled-button>${t('form-btn-edit')}</md-filled-button>
-      </form>
+      <page-layout>
+        <form @submit=${this.editOldTask}>
+          <md-outlined-select id="type">
+            <md-select-option ?selected=${this.editedTask?.type === ''} value=""
+              ><div slot="headline">${t('form-select')}</div></md-select-option
+            >
+            <md-select-option
+              ?selected=${this.editedTask?.type === 'personal'}
+              value="personal"
+              ><div slot="headline">Personal</div></md-select-option
+            >
+            <md-select-option
+              ?selected=${this.editedTask?.type === 'work'}
+              value="work"
+              ><div slot="headline">Work</div></md-select-option
+            >
+            <md-select-option
+              ?selected=${this.editedTask?.type === 'shopping'}
+              value="shopping"
+              ><div slot="headline">Shopping</div></md-select-option
+            >
+          </md-outlined-select>
+          <md-outlined-text-field
+            value=${this.editedTask?.title}
+            id="title"
+            type="text"
+            label=${t('form-title')}
+            required
+          ></md-outlined-text-field>
+          <md-outlined-text-field
+            value=${this.editedTask?.description}
+            id="description"
+            type="textarea"
+            label=${t('form-description')}
+            required
+            rows="6"
+          ></md-outlined-text-field>
+          <md-outlined-text-field
+            value=${this.editedTask?.tags.join(';')}
+            id="tags"
+            type="text"
+            label=${t('form-tags')}
+          ></md-outlined-text-field>
+          <md-filled-button>${t('form-btn-edit')}</md-filled-button>
+        </form>
+      </page-layout>
     `;
   }
 
