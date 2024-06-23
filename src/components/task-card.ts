@@ -32,6 +32,7 @@ export class TaskCard extends LitElement {
 
       & .ctrl-task {
         display: flex;
+        flex-wrap: wrap;
         gap: 0.6rem;
 
         & span {

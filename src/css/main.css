@@ -3,10 +3,12 @@
 html,
 body {
   height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
   max-width: 30rem;
   margin: 0 auto;
 }
 * {
-   box-sizing: border-box;
- }
+  box-sizing: border-box;
+}

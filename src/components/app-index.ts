@@ -11,7 +11,7 @@ startApp({
   routes,
   mainNode: 'app-content',
   // @ts-ignore
-  interceptor: function (navigation, ctx) {
+  interceptor: function (navigation) {
     let intercept = false;
     let redirect;
 
