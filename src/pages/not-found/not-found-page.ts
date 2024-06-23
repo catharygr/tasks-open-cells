@@ -3,6 +3,7 @@ import { customElement } from 'lit/decorators.js';
 import '@material/web/button/filled-button.js';
 import '../../components/page-layout.js';
 import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
+import { PageController } from '@open-cells/page-controller';
 
 @customElement('not-found-page')
 export class NotFound extends LitElement {
@@ -11,6 +12,8 @@ export class NotFound extends LitElement {
     // @ts-ignore
     updateWhenLocaleResourcesChange(this);
   }
+
+  pageController = new PageController(this);
 
   static styles = css`
   .container-no-found {
@@ -42,7 +45,7 @@ export class NotFound extends LitElement {
           <h2>${t('not-title')}</h2>
           <md-filled-button
             class="btn-not-found"
-            @click=${() => (window.location.href = '/')}
+            @click=${() => this.pageController.navigate('home')}
             >HOME</md-filled-button
           >
           <div class="all-together">

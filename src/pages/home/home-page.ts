@@ -23,6 +23,8 @@ export class HomePage extends LitElement {
       font-size: 2rem;
       padding: 1.2rem;
       cursor: pointer;
+      --md-elevated-button-container-shape: 10px;
+      --md-sys-color-surface-container-low: rgb(231, 223, 236);
     }
   `;
 

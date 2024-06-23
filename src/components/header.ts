@@ -67,14 +67,16 @@ export class HeaderComponent extends LitElement {
 
   displayIcon() {
     const currentPageValue = this.currentPage?.value.currentPage;
-    if (currentPageValue === 'home' || currentPageValue === 'login') {
+    if (
+      currentPageValue === 'home' ||
+      currentPageValue === 'login' ||
+      currentPageValue === 'not-found'
+    ) {
       return html``;
     } else {
     }
     return html`
-      <md-icon
-        @click=${() => this.pageControler.navigate('home')}
-        class="icon-arrow"
+      <md-icon @click=${() => this.pageControler.backStep()} class="icon-arrow"
         >arrow_back</md-icon
       >
     `;
