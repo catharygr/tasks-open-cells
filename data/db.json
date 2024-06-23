@@ -1,61 +1,32 @@
 {
   "tasks": [
     {
-      "id": "87e15046-8f9a-4286-880d-9258f1fe1590",
-      "title": "Perosnla",
-      "description": "persoanl jajajja EditadpDFYFTYDYF",
+      "id": "f8865dab-f2c0-455b-90a6-68156da988b7",
+      "title": "Viaje de vacaciones",
+      "description": "Organizar el equipo de ski",
       "tags": [
-        ""
-      ],
-      "type": "work"
-    },
-    {
-      "id": "ac9f1c5f-5fbb-4261-86c3-2a817d745eee",
-      "title": "Work",
-      "description": "Work",
-      "tags": [
-        ""
-      ],
-      "type": "work"
-    },
-    {
-      "id": "8c6c9d59-4d24-4165-aa7b-7d50c099fda7",
-      "title": "Shoppimg Editado otra vez editadp",
-      "description": "Sho",
-      "tags": [
-        "gf",
-        "hdhfhhf",
-        "jdfhhfghg",
-        "jfjjgg",
-        ""
-      ],
-      "type": "shopping"
-    },
-    {
-      "id": "7464e600-4f26-4a77-ac59-865fac67ecfe",
-      "title": "ewrqwerqwr",
-      "description": "qweq",
-      "tags": [
-        "werqwrq"
+        "vacaciones",
+        " equipo"
       ],
       "type": "personal"
     },
     {
-      "id": "59be1440-237b-45dd-bfa1-dbf497d0ffc9",
-      "title": "Uno Nuevo EDITADO",
-      "description": "Uno nuevo EDITSADO",
+      "id": "f0c45393-668f-4ef8-9384-41355631f345",
+      "title": "Reunión con el equipo marketing",
+      "description": "Resolver el problema de demasiada publicidad en el carrusel",
       "tags": [
-        "uno nuevo",
-        " EDITADO"
+        "página web",
+        " reunión"
       ],
       "type": "work"
     },
     {
-      "id": "7b4ecfd3-d5db-4631-a223-8dd0f48d6da5",
-      "title": "UNO Nuevo de nuevo OTRO",
-      "description": "Un nuevi de nuevio OTRO",
+      "id": "891d225a-a5e6-4b6c-b086-e5b535f66249",
+      "title": "Cena de cumpleaños de Maria",
+      "description": "No olvidar que el hijo de Juan es alérgico",
       "tags": [
-        "ftertgertetew"
+        "comprar la tarta",
+        " ensalada"
       ],
       "type": "shopping"
     }
