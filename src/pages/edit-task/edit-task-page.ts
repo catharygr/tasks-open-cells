@@ -12,7 +12,7 @@ import '../../components/page-layout.js';
 @customElement('edit-tasks-page')
 export class EditTasksPage extends LitElement {
   pageControler = new PageController(this);
-  editedTask: any;
+  [x: string]: any;
 
   constructor() {
     super();
