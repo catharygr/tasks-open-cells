@@ -99,7 +99,6 @@ export class HomePage extends LitElement {
     this.pageController.navigate('edit-task', { taskId: task.id, ...task });
   }
   removeTag(task: Task) {
-    console.log(task);
     fetch(`http://localhost:3000/tasks/${task.id}`, {
       method: 'PUT',
       headers: {

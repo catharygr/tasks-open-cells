@@ -53,7 +53,6 @@ export class HeaderComponent extends LitElement {
   }
 
   render() {
-    console.log(this.currentPage);
     return html`
       <header>
         ${this.displayIcon()}
