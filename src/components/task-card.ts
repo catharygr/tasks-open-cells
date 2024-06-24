@@ -68,7 +68,13 @@ export class TaskCard extends LitElement {
         <div class="ctrl-container">
           <div class="ctrl-task">
             ${this.task.tags.map(
-              (tag: any) => html`<span>${tag} <md-icon>close</md-icon></span>`
+              (tag: any) =>
+                html`<span
+                  >${tag}
+                  <md-icon @click="${() => this.removeTag(tag)}"
+                    >close</md-icon
+                  ></span
+                >`
             )}
           </div>
           <div class="ctrl-btn">
@@ -99,4 +105,14 @@ export class TaskCard extends LitElement {
       </div>
     `;
   }
+  removeTag = (tag: string) => {
+    this.task.tags = this.task.tags.filter((t) => t !== tag);
+    this.dispatchEvent(
+      new CustomEvent('remove-tag', {
+        detail: this.task,
+        bubbles: true,
+        composed: true,
+      })
+    );
+  };
 }
