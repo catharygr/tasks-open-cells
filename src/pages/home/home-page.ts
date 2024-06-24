@@ -52,6 +52,9 @@ export class HomePage extends LitElement {
     this.shadowRoot?.addEventListener('edit-task', (payload: any) => {
       this.editTask(payload.detail);
     });
+    this.shadowRoot?.addEventListener('remove-tag', (payload: any) => {
+      this.removeTag(payload.detail);
+    });
   }
 
   render() {
@@ -94,5 +97,19 @@ export class HomePage extends LitElement {
 
   editTask(task: Task) {
     this.pageController.navigate('edit-task', { taskId: task.id, ...task });
+  }
+  removeTag(task: Task) {
+    console.log(task);
+    fetch(`http://localhost:3000/tasks/${task.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(task),
+    })
+      .then(() => {
+        this.fetchTasks();
+      })
+      .catch((error) => (this.errTask = error.message || 'Error removing tag'));
   }
 }

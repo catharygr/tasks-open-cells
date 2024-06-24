@@ -27,19 +27,16 @@
       "type": "shopping",
       "tags": [
         "comprar la tarta",
-        " ensalada",
-        " zumos"
+        " ensalada"
       ]
     },
     {
-      "id": "dfb842b5-13d0-4d12-812d-3d7398c8ec46",
-      "title": "Para bora",
-      "description": "rr editado",
-      "type": "personal",
+      "id": "078eddbb-eb8f-40a1-abd6-35937082d1f4",
+      "title": "A trabajar, gdhfhf",
+      "description": "Trabaja bien, editado",
+      "type": "work",
       "tags": [
-        "dgfg",
-        " sfsgdgf",
-        " editado"
+        "TRabahar"
       ]
     }
   ]
