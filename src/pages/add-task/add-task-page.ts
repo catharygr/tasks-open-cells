@@ -115,7 +115,9 @@ export class AddTasksPage extends LitElement {
             type="text"
             label=${t('form-tags')}
           ></md-outlined-text-field>
-          <md-filled-button>${t('form-btn-add')}</md-filled-button>
+          <md-filled-button type="submit"
+            >${t('form-btn-add')}</md-filled-button
+          >
         </form>
       </page-layout>
     `;
