@@ -5,6 +5,7 @@ import { Task } from '../../utils/types.js';
 import '@material/web/button/elevated-button.js';
 import '@material/web/icon/icon.js';
 import '../../components/task-card.js';
+import '../../components/page-layout.js';
 
 @customElement('home-page')
 export class HomePage extends LitElement {
@@ -14,7 +15,6 @@ export class HomePage extends LitElement {
   static styles = css`
     :host {
       position: relative;
-      overflow: scroll;
     }
     .new-task {
       position: absolute;
@@ -59,15 +59,17 @@ export class HomePage extends LitElement {
 
   render() {
     return html`
-      ${this.errTask ? this.errTask : ''}
-      ${this.allTaks?.map(
-        (task: Task) => html`<task-card .task=${task}>}</task-card>`
-      )}
-      <md-elevated-button
-        @click=${() => this.pageController.navigate('add-task')}
-        class="new-task"
-        ><md-icon>add</md-icon></md-elevated-button
-      >
+      <page-layout>
+        ${this.errTask ? this.errTask : ''}
+        ${this.allTaks?.map(
+          (task: Task) => html`<task-card .task=${task}>}</task-card>`
+        )}
+        <md-elevated-button
+          @click=${() => this.pageController.navigate('add-task')}
+          class="new-task"
+          ><md-icon>add</md-icon></md-elevated-button
+        >
+      </page-layout>
     `;
   }
   // Métodos

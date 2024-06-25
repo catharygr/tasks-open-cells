@@ -7,6 +7,7 @@ import '@material/web/textfield/outlined-text-field.js';
 import '@material/web/select/outlined-select.js';
 import '@material/web/select/select-option.js';
 import '@material/web/button/filled-button.js';
+import '../../components/page-layout.js';
 
 @customElement('add-tasks-page')
 export class AddTasksPage extends LitElement {
@@ -79,42 +80,46 @@ export class AddTasksPage extends LitElement {
 
   render() {
     return html`
-      <h2>${t('add-task-title')}</h2>
-      <form @submit=${this.sendTask}>
-        <md-outlined-select id="type">
-          <md-select-option value="" selected
-            ><div slot="headline">${t('form-select')}</div></md-select-option
+      <page-layout>
+        <h2>${t('add-task-title')}</h2>
+        <form @submit=${this.sendTask}>
+          <md-outlined-select id="type">
+            <md-select-option value="" selected
+              ><div slot="headline">${t('form-select')}</div></md-select-option
+            >
+            <md-select-option value="personal"
+              ><div slot="headline">Personal</div></md-select-option
+            >
+            <md-select-option value="work"
+              ><div slot="headline">Work</div></md-select-option
+            >
+            <md-select-option value="shopping"
+              ><div slot="headline">Shopping</div></md-select-option
+            >
+          </md-outlined-select>
+          <md-outlined-text-field
+            id="title"
+            type="text"
+            label=${t('form-title')}
+            required
+          ></md-outlined-text-field>
+          <md-outlined-text-field
+            id="description"
+            type="textarea"
+            label=${t('form-description')}
+            required
+            rows="6"
+          ></md-outlined-text-field>
+          <md-outlined-text-field
+            id="tags"
+            type="text"
+            label=${t('form-tags')}
+          ></md-outlined-text-field>
+          <md-filled-button type="submit"
+            >${t('form-btn-add')}</md-filled-button
           >
-          <md-select-option value="personal"
-            ><div slot="headline">Personal</div></md-select-option
-          >
-          <md-select-option value="work"
-            ><div slot="headline">Work</div></md-select-option
-          >
-          <md-select-option value="shopping"
-            ><div slot="headline">Shopping</div></md-select-option
-          >
-        </md-outlined-select>
-        <md-outlined-text-field
-          id="title"
-          type="text"
-          label=${t('form-title')}
-          required
-        ></md-outlined-text-field>
-        <md-outlined-text-field
-          id="description"
-          type="textarea"
-          label=${t('form-description')}
-          required
-          rows="6"
-        ></md-outlined-text-field>
-        <md-outlined-text-field
-          id="tags"
-          type="text"
-          label=${t('form-tags')}
-        ></md-outlined-text-field>
-        <md-filled-button type="submit">${t('form-btn-add')}</md-filled-button>
-      </form>
+        </form>
+      </page-layout>
     `;
   }
 
