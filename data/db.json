@@ -37,15 +37,6 @@
       "description": "Nuevo otra vez editado",
       "type": "personal",
       "tags": []
-    },
-    {
-      "id": "553883f3-b975-4613-9a53-4c2e70d8e748",
-      "title": "Tarea bueva EDITADO",
-      "description": "una bueca tarea",
-      "type": "personal",
-      "tags": [
-        "nueva "
-      ]
     }
   ]
 }

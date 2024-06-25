@@ -109,7 +109,7 @@ export class EditTasksPage extends LitElement {
     `;
   }
 
-  editOldTask(e: Event) {
+  async editOldTask(e: Event) {
     e.preventDefault();
     const taskToSend: Task = {
       id: this.params.id,
@@ -118,18 +118,17 @@ export class EditTasksPage extends LitElement {
       type: this._type.value,
       tags: this._tags.value.split(';'),
     };
-    fetch(`http://localhost:3000/tasks/${taskToSend.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(taskToSend),
-    })
-      .then(() => {
-        this.pageControler.navigate('home');
-      })
-      .catch((error) => {
-        console.error('Error:', error);
+    try {
+      await fetch(`http://localhost:3000/tasks/${taskToSend.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(taskToSend),
       });
+      this.pageControler.navigate('home');
+    } catch (error) {
+      console.error('Error:', error);
+    }
   }
 }

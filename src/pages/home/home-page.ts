@@ -73,42 +73,43 @@ export class HomePage extends LitElement {
     `;
   }
   // Métodos
-
-  fetchTasks() {
-    fetch('http://localhost:3000/tasks')
-      .then((response) => response.json())
-      .then((data) => (this.allTaks = data))
-      .catch(
-        (error) => (this.errTask = error.message || 'Error fetching tasks')
-      );
+  async fetchTasks() {
+    try {
+      const response = await fetch('http://localhost:3000/tasks');
+      const data = await response.json();
+      this.allTaks = data;
+    } catch (error: any) {
+      this.errTask = error.message || 'Error fetching tasks';
+    }
   }
 
-  deleteTask(task: Task) {
-    fetch(`http://localhost:3000/tasks/${task.id}`, {
-      method: 'DELETE',
-    })
-      .then(() => {
-        this.fetchTasks();
-      })
-      .catch(
-        (error) => (this.errTask = error.message || 'Error deleting task')
-      );
+  async deleteTask(task: Task) {
+    try {
+      await fetch(`http://localhost:3000/tasks/${task.id}`, {
+        method: 'DELETE',
+      });
+      await this.fetchTasks();
+    } catch (error: any) {
+      this.errTask = error.message || 'Error deleting task';
+    }
   }
 
   editTask(task: Task) {
     this.pageController.navigate('edit-task', { taskId: task.id, ...task });
   }
-  removeTag(task: Task) {
-    fetch(`http://localhost:3000/tasks/${task.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(task),
-    })
-      .then(() => {
-        this.fetchTasks();
-      })
-      .catch((error) => (this.errTask = error.message || 'Error removing tag'));
+
+  async removeTag(task: Task) {
+    try {
+      await fetch(`http://localhost:3000/tasks/${task.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(task),
+      });
+      await this.fetchTasks();
+    } catch (error: any) {
+      this.errTask = error.message || 'Error removing tag';
+    }
   }
 }

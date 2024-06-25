@@ -123,32 +123,31 @@ export class AddTasksPage extends LitElement {
     `;
   }
 
-  sendTask(e: Event) {
+  async sendTask(e: Event) {
     e.preventDefault();
     this._task.id = crypto.randomUUID();
-    fetch('http://localhost:3000/tasks', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(this._task),
-    })
-      .then(() => {
-        this._task = {
-          id: '',
-          title: '',
-          description: '',
-          tags: [],
-          type: '',
-        };
-        this._type.value = '';
-        this._title.value = '';
-        this._description.value = '';
-        this._tags.value = '';
-        this.pageControler.navigate('home');
-      })
-      .catch((error) => {
-        console.error('Error:', error);
+    try {
+      await fetch('http://localhost:3000/tasks', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(this._task),
       });
+      this._task = {
+        id: '',
+        title: '',
+        description: '',
+        tags: [],
+        type: '',
+      };
+      this._type.value = '';
+      this._title.value = '';
+      this._description.value = '';
+      this._tags.value = '';
+      this.pageControler.navigate('home');
+    } catch (error) {
+      console.error('Error:', error);
+    }
   }
 }
