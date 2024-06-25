@@ -1,17 +1,19 @@
+// @ts-nocheck
 import { startApp } from '@open-cells/core';
 import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { ElementController } from '@open-cells/element-controller';
 import { routes } from '../router/routes.js';
 import { styles } from './app-index.css.js';
+import type { NavigationWithParams } from '@open-cells/core/types';
 import './header.ts';
 import './footer.ts';
 
 startApp({
   routes,
   mainNode: 'app-content',
-  // @ts-ignore
-  interceptor: function (navigation) {
+  persistentPages: ['home'],
+  interceptor: function (navigation: NavigationWithParams) {
     let intercept = false;
     let redirect;
 

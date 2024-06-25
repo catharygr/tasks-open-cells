@@ -30,6 +30,22 @@
         " ensalada",
         " zumos"
       ]
+    },
+    {
+      "id": "58fc90e9-be84-41bb-b49e-86d5ab58f48b",
+      "title": "Uno nuevo",
+      "description": "Nuevo otra vez editado",
+      "type": "personal",
+      "tags": []
+    },
+    {
+      "id": "553883f3-b975-4613-9a53-4c2e70d8e748",
+      "title": "Tarea bueva EDITADO",
+      "description": "una bueca tarea",
+      "type": "personal",
+      "tags": [
+        "nueva "
+      ]
     }
   ]
 }
