@@ -67,6 +67,7 @@ export class HomePage extends LitElement {
         <md-elevated-button
           @click=${() => this.pageController.navigate('add-task')}
           class="new-task"
+          aria-label="Add task"
           ><md-icon>add</md-icon></md-elevated-button
         >
       </page-layout>
