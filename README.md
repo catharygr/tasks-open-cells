@@ -1,4 +1,4 @@
-# Ejercicio Open Cells
+## Ejercicio Open Cells
 
 El objetivo del ejercicio ha sido crear una aplicación para gestionar tareas:
 
@@ -7,7 +7,7 @@ El objetivo del ejercicio ha sido crear una aplicación para gestionar tareas:
 - Eliminar tareas
 - Visualizar un listado de tareas
 
-## Condiciones que he tenido en cuenta:
+#Condiciones que he tenido en cuenta:
 
 - He utilizado json server para la gestión de tareas.
 - He añadido un icono de idioma y he gestionado el cambio entre los idiomas "es" y "en", y los literales están traducidos.
