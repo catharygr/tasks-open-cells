@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "npm run build && vite preview"
+    "preview": "npm run build && vite preview",
+    "json-server": "json-server --watch data/db.json "
   },
   "dependencies": {
     "@material/web": "^1.5.0",
