@@ -53,15 +53,7 @@ export class HeaderComponent extends LitElement {
   }
 
   render() {
-    return html`
-      <header>
-        ${this.displayIcon()}
-        <h1>${t('app-title') ?? 'Taks App'}</h1>
-        <md-icon @click=${this.toggleLanguage} class="icon-language"
-          >language</md-icon
-        >
-      </header>
-    `;
+    return html``;
   }
 
   displayIcon() {
