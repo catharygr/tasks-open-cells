@@ -1,4 +1,4 @@
-## Ejercicio Open Cells
+# Ejercicio Open Cells
 
 El objetivo del ejercicio ha sido crear una aplicación para gestionar tareas:
 
